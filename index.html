@@ -28,9 +28,20 @@ h2{font-family:'Cormorant Garamond',serif;font-size:38px;letter-spacing:2px;marg
 </head>
 <body>
 <button class="music-btn" id="musicBtn" onclick="toggleMusic()">🎵</button>
-<audio id="bgmusic" loop>
-<source src="https://ia800905.us.archive.org/35/items/disney-cinderella-a-dream-is-a-wish/01%20A%20Dream%20Is%20a%20Wish%20Your%20Heart%20Makes.mp3" type="audio/mpeg">
+<<audio id="bgmusic" loop preload="auto">
+<source src="https://archive.org/download/disney-cinderella-a-dream-is-a-wish/01%20A%20Dream%20Is%20a%20Wish%20Your%20Heart%20Makes.mp3" type="audio/mpeg">
 </audio>
+<script>
+function toggleMusic(){
+var m=document.getElementById("bgmusic");
+var b=document.getElementById("musicBtn");
+if(m.paused){m.play();b.innerHTML="🔊";}else{m.pause();b.innerHTML="🎵";}
+}
+document.addEventListener("click",function(){
+var m=document.getElementById("bgmusic");
+if(m.paused){m.play();}
+},{once:true});
+</script>
 <div class="hero">
 <div class="crown">👑</div>
 <p style="letter-spacing:4px">MIS XV AÑOS</p>
