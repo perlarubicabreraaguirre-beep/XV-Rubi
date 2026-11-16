@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis XV Años - Perla Rubi</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#020a1e;color:white;font-family:'Montserrat',sans-serif;text-align:center}
+.hero{min-height:100vh;background:linear-gradient(180deg,#020a1e,#0a2a6b,#1e5bb8);padding:30px 20px 40px}
+.crown{font-size:50px;margin-top:20px}
+h1{font-family:'Great Vibes',cursive;font-size:64px;color:#ffd700;line-height:1;text-shadow:0 0 20px #ffd700}
+h2{font-family:'Cormorant Garamond',serif;font-size:38px;letter-spacing:2px;margin-top:5px}
+.date{margin:20px 0;background:rgba(255,255,255,.15);border:1px solid gold;border-radius:20px;padding:15px}
+.date b{font-size:22px;color:#ffd700}
+.count{display:flex;justify-content:center;gap:10px;margin:20px 0}
+.count div{background:white;color:#0a2a6b;border-radius:15px;padding:12px 8px;width:70px}
+.count span{font-size:26px;font-weight:700;display:block}
+.card{background:white;color:#0a2a6b;border-radius:25px;padding:25px 18px;margin:18px 0;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.card h3{color:#b8860b;font-family:'Cormorant Garamond',serif;font-size:28px}
+.btn{display:block;background:#0a2a6b;color:white;text-decoration:none;padding:14px;border-radius:50px;margin:12px 0;font-weight:600}
+.btn.green{background:#25D366;color:white}
+.nota{background:#fff8d6;color:#5a4300;border:2px dashed #d4af37;border-radius:15px;padding:15px;margin:20px 0;font-size:14px}
+.music-btn{position:fixed;top:15px;right:15px;background:gold;color:#020a1e;border:none;border-radius:50%;width:50px;height:50px;font-size:22px;z-index:999}
+.footer{padding:20px;font-size:13px;opacity:.8}
+</style>
+</head>
+<body>
+<button class="music-btn" id="musicBtn" onclick="toggleMusic()">🎵</button>
+<audio id="bgmusic" loop>
+<source src="https://ia800905.us.archive.org/35/items/disney-cinderella-a-dream-is-a-wish/01%20A%20Dream%20Is%20a%20Wish%20Your%20Heart%20Makes.mp3" type="audio/mpeg">
+</audio>
+<div class="hero">
+<div class="crown">👑</div>
+<p style="letter-spacing:4px">MIS XV AÑOS</p>
+<h1>Perla Rubi</h1>
+<h2>✨ Cenicienta ✨</h2>
+<p style="margin-top:10px">👠 Había una vez un sueño...<br>Y ese sueño eres tú</p>
+<div class="date"><b>26 de Diciembre del 2026</b><br>Faltan para el gran día
+<div class="count"><div><span id="d">0</span>Días</div><div><span id="h">0</span>Horas</div><div><span id="m">0</span>Min</div><div><span id="s">0</span>Seg</div></div></div>
+<div class="card"><h3>⛪ Misa</h3><p><b>Cuasiparroquia San Isidro Labrador</b><br>2:00 pm</p><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Cuasiparroquia+San+Isidro+Labrador+Atlacomulco" target="_blank">📍 Ver ubicación de la Misa</a></div>
+<div class="card"><h3>🎉 Recepción</h3><p><b>Salón Regina's</b><br>4:00 pm</p><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Salon+Regina's+Atlacomulco" target="_blank">📍 Ver ubicación del Salón</a></div>
+<div class="nota">💙 <b>El color azul en todas sus tonalidades se reserva para la quinceañera</b> 💙</div>
+<a class="btn green" href="https://wa.me/527223893867?text=Hola%20Perla%2C%20confirmo%20mi%20asistencia%20a%20tus%20XV%20a%C3%B1os%20%F0%9F%92%99" target="_blank">✅ Confirmar asistencia por WhatsApp</a>
+<div class="footer">Con amor, Perla Rubi • 26 . 12 . 2026<br>👠✨💙</div>
+</div>
+<script>
+const target=new Date("2026-12-26T14:00:00").getTime();
+setInterval(()=>{let now=new Date().getTime();let diff=target-now;if(diff<0)diff=0;document.getElementById("d").innerText=Math.floor(diff/(1000*60*60*24));document.getElementById("h").innerText=Math.floor((diff%(1000*60*60*24))/(1000*60*60));document.getElementById("m").innerText=Math.floor((diff%(1000*60*60))/(1000*60));document.getElementById("s").innerText=Math.floor((diff%(1000*60))/1000);},1000);
+const music=document.getElementById("bgmusic");const btn=document.getElementById("musicBtn");let playing=false;
+function toggleMusic(){if(!playing){music.play();btn.innerText="🔊";playing=true;}else{music.pause();btn.innerText="🔇";playing=false;}}
+window.addEventListener('click',()=>{if(!playing){music.play().then(()=>{btn.innerText="🔊";playing=true;}).catch(()=>{});}}, {once:true});
+</script>
+</body>
+                                                                                              </html>
